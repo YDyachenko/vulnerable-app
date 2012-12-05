@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="span12">
+        <h1>News</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="span12">
+        <? foreach ($news as $item): ?>
+        <div>
+            <div class="pull-right">
+                <?= $item['date_created'] ?>
+            </div>
+            <a href="/news/<?= $item['id'] ?>">
+                <?= htmlspecialchars($item['title']) ?>
+            </a>
+            <p style="margin: 10px">
+                <?= $item['text'] ?>
+            </p>
+            <hr>
+        </div>
+        
+        <? endforeach ?>
+    </div>
+</div>

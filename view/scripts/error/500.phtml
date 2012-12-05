@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="span12">
+        <h1>Internal server error</h1>
+
+        <? if (isset($exception)): ?>
+
+        <div class="alert">
+            <strong>Meassage:</strong>
+            <?= $exception->getMessage() ?>
+        </div>
+        <pre class="well"><?= $exception->getTraceAsString() ?></pre>
+        
+        <? endif ?>
+    </div>
+</div>

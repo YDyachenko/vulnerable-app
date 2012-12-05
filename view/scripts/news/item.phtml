@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="span12">
+        <h1><?= htmlspecialchars($item['title']) ?></h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="span12">
+        <div>
+            <p>
+                <?= $item['text'] ?>
+            </p>
+            <p class="muted">Posted on <?= $item['date_created'] ?></p>
+        </div>
+
+        <div class="">
+            <h4>Comments</h4>
+            <? foreach ($comments as $comment): ?>
+                <div class="comment">
+                    <blockquote>
+                        <small>
+                            <strong><?= htmlspecialchars($comment['username']) ?></strong>
+                            posted on <?= $comment['date_posted'] ?>
+                        </small>
+                        <?= nl2br(htmlspecialchars($comment['text'])) ?>
+                    </blockquote>
+                </div>
+            <? endforeach ?>
+
+            <div>
+                
+                <form method="post" action="/news/<?= $item['id'] ?>/add-comment">
+                    <legend>Add comment</legend>
+                    <div class="control-group">
+                        <div class="controls input-prepend">
+                            <span class="add-on">@</span>
+                            <input type="text" name="username" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <textarea name="text" placeholder="Comment" class="span12"></textarea>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
